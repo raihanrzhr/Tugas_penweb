@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi Page Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        width: 80%;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .page {
+        display: none;
+    }
+
+    .active {
+        display: block;
+    }
+
+    .biodata, .activities, .suggestions {
+        margin-bottom: 20px;
+    }
+
+    .biodata h2, .activities h2, .suggestions h2 {
+        margin-bottom: 10px;
+        color: #666;
+    }
+
+    .biodata p, .activities p, .suggestions p {
+        margin: 5px 0;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    form input[type="text"],
+    form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    form textarea {
+        height: 100px;
+    }
+
+    form input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    form input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .extra {
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="page active" id="page1">
+        <h1>Biodata</h1>
+        <div class="biodata">
+            <h2>Biodata</h2>
+            <p>Nama: Raihan Nurazhar Budi Satria</p>
+            <p>Usia: 21 tahun</p>
+            <p>Alamat: Jl. PlutoRaya</p>
+            <p>Email: raihannurazhar@upi.edu</p>
+        </div>
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <div class="page" id="page2">
+        <h1>Daftar Kegiatan Kampus yang pernah dilakukan</h1>
+        <div class="activities">
+            <h2>Daftar Kegiatan</h2>
+            <p>Kegiatan 1</p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae soluta mollitia necessitatibus. Non dolorum corrupti reiciendis impedit dolor laboriosam consectetur. Quo voluptatem, unde aliquam consectetur quidem adipisci modi accusamus vel.
+            <p>Kegiatan 2</p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque obcaecati, voluptates consequuntur quam quaerat deserunt sint libero ex accusantium quos repudiandae perspiciatis laboriosam veniam minima dignissimos et dolores assumenda iure?
+            <p>Kegiatan 3</p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, accusantium odit. Quidem ratione modi atque, quae error obcaecati nostrum esse architecto provident, quod eius tenetur eos perspiciatis odit voluptatibus reprehenderit.
+
+        </div>
+        <button onclick="prevPage()">Previous</button>
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <div class="page" id="page3">
+      <form action="#" method="post">
+        <h2>Formulir</h2>
+        <input type="text" name="nama" placeholder="Nama" required>
+        <input type="text" name="usia" placeholder="Usia" required>
+        <textarea name="alamat" placeholder="Alamat" required></textarea>
+        <input type="text" name="email" placeholder="Email" required>
+        <input type="submit" value="Submit">
+        </form>
+        <button onclick="prevPage()">Previous</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    var currentPage = 1;
+
+    function nextPage() {
+        if (currentPage < 3) {
+            document.getElementById('page' + currentPage).classList.remove('active');
+            currentPage++;
+            document.getElementById('page' + currentPage).classList.add('active');
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 1) {
+            document.getElementById('page' + currentPage).classList.remove('active');
+            currentPage--;
+            document.getElementById('page' + currentPage).classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>
